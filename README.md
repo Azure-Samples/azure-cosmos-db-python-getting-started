@@ -14,7 +14,7 @@ Azure Cosmos DB is a globally distributed multi-model database. One of the suppo
     * Python Tools for Visual Studio from [GitHub](http://microsoft.github.io/PTVS/).
     * Python 2.7 from [python.org](https://www.python.org/downloads/release/python-2712/)
 
-* Then, clone this repository using `git clone git@github.com:arramac/azure-cosmos-db-documentdb-python-getting-started.git`
+* Then, clone this repository using `git clone git@github.com:<your github user ID>/azure-cosmos-db-documentdb-python-getting-started.git`
 
 * Next, substitute the endpoint and authorization key in `DocumentDBGetStarted.py` with your Cosmos DB account's values. 
 
