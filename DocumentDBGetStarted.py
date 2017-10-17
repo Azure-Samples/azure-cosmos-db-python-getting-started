@@ -2,9 +2,9 @@ import pydocumentdb;
 import pydocumentdb.document_client as document_client
 
 config = { 
-    'ENDPOINT': 'https://documentdb-aggregates.documents.azure.com',
-    'MASTERKEY': 'ReCXNXGSBdDsRf3xwFODu1NnP29gm0SxgEtgBqWpGxjM0eSEBp0GNtVjHLXeEQOVUw3SSS3B820PqRAQ3Ag8Yw==',
-    'DOCUMENTDB_DATABASE': 'db3',
+    'ENDPOINT': 'https://FILLME.documents.azure.com',
+    'MASTERKEY': 'FILLME',
+    'DOCUMENTDB_DATABASE': 'db',
     'DOCUMENTDB_COLLECTION': 'coll'
 };
 
