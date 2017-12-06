@@ -4,15 +4,15 @@ import pydocumentdb.document_client as document_client
 config = { 
     'ENDPOINT': 'https://FILLME.documents.azure.com',
     'MASTERKEY': 'FILLME',
-    'DOCUMENTDB_DATABASE': 'db',
-    'DOCUMENTDB_COLLECTION': 'coll'
+    'SQL_DATABASE': 'db',
+    'SQL_COLLECTION': 'coll'
 };
 
-# Initialize the Python DocumentDB client
+# Initialize the Python client
 client = document_client.DocumentClient(config['ENDPOINT'], {'masterKey': config['MASTERKEY']})
 
 # Create a database
-db = client.CreateDatabase({ 'id': config['DOCUMENTDB_DATABASE'] })
+db = client.CreateDatabase({ 'id': config['SQL_DATABASE'] })
 
 # Create collection options
 options = {
@@ -22,7 +22,7 @@ options = {
 }
 
 # Create a collection
-collection = client.CreateCollection(db['_self'], { 'id': config['DOCUMENTDB_COLLECTION'] }, options)
+collection = client.CreateCollection(db['_self'], { 'id': config['SQL_COLLECTION'] }, options)
 
 # Create some documents
 document1 = client.CreateDocument(collection['_self'],
