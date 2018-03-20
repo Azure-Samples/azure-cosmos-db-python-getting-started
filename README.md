@@ -28,5 +28,5 @@ The code included in this sample is intended to get you quickly started with a P
 - [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction)
 - [Azure Cosmos DB: SQL API](https://docs.microsoft.com/azure/cosmos-db/sql-api-introduction)
 - [Azure Cosmos DB Python SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-python)
-- [Azure Cosmos dB Python SDK Reference Documentation](http://azure.github.io/azure-documentdb-python/)
+- [Azure Cosmos DB Python SDK Reference Documentation](http://azure.github.io/azure-documentdb-python/)
 
