@@ -1,11 +1,11 @@
 ---
-services: documentdb
+services: cosmos-db
 platforms: python
 author: arramac
 ---
 
 # Developing a Python app using Azure Cosmos DB
-Azure Cosmos DB is a globally distributed multi-model database. One of the supported APIs is the DocumentDB API, which provides a JSON document model with SQL querying and JavaScript procedural logic. This sample shows you how to use the Azure Cosmos DB with the DocumentDB API to store and access data from a Python application.
+Azure Cosmos DB is a globally distributed multi-model database. One of the supported APIs is the SQL API, which provides a JSON document model with SQL querying and JavaScript procedural logic. This sample shows you how to use the Azure Cosmos DB with the SQL API to store and access data from a Python application.
 
 ## Running this sample
 
@@ -21,12 +21,12 @@ Azure Cosmos DB is a globally distributed multi-model database. One of the suppo
 * Press F5 to run the application.
 
 ## About the code
-The code included in this sample is intended to get you quickly started with a Python application that connects to Azure Cosmos DB with the DocumentDB API.
+The code included in this sample is intended to get you quickly started with a Python application that connects to Azure Cosmos DB with the SQL API.
 
 ## More information
 
 - [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction)
-- [Azure Cosmos DB: DocumentDB API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction)
-- [Azure DocumentDB Python SDK](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-python)
-- [Azure DocumentDB Python SDK Reference Documentation](http://azure.github.io/azure-documentdb-python/)
+- [Azure Cosmos DB: SQL API](https://docs.microsoft.com/azure/cosmos-db/sql-api-introduction)
+- [Azure Cosmos DB Python SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-python)
+- [Azure Cosmos dB Python SDK Reference Documentation](http://azure.github.io/azure-documentdb-python/)
 
