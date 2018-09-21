@@ -5,13 +5,13 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>1fbaddda-c788-49aa-8227-efc0e61e1eb5</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>DocumentDBGetStarted.py</StartupFile>
+    <StartupFile>CosmosGetStarted.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>DocumentDBGetStarted</Name>
-    <RootNamespace>DocumentDBGetStarted</RootNamespace>
+    <Name>CosmosGetStarted</Name>
+    <RootNamespace>CosmosGetStarted</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,7 +22,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="DocumentDBGetStarted.py" />
+    <Compile Include="CosmosGetStarted.py" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
