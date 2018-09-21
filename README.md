@@ -15,7 +15,7 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
     * [Python 3.6](https://www.python.org/downloads/) with \<install location\>\Python36 and \<install location>\Python36\Scripts added to your PATH. 
 
 * Then, clone this repository using: 
-     `git clone git@github.com:Azure-Samples/azure-cosmos-db-documentdb-python-getting-started.git`
+     `git clone https://github.com/Azure-Samples/azure-cosmos-db-python-getting-started.git`
 
 * Next, substitute the endpoint and primary key in `CosmosGetStarted.py` with your Cosmos DB account's values. 
 
