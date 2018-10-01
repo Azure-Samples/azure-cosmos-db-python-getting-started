@@ -12,7 +12,7 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
 * Before you can run this sample, you must have the following prerequisites:
     * [Visual Studio Code](https://code.visualstudio.com/)
     * [Python extention for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
-    * [Python 3.6](https://www.python.org/downloads/) with \<install location\>\Python36 and \<install location>\Python36\Scripts added to your PATH. 
+    * [Python 3.7](https://www.python.org/downloads/release/python-370/) with \<install location\>\Python37 and \<install location>\Python37\Scripts added to your PATH. 
 
 * Then, clone this repository using: 
      `git clone https://github.com/Azure-Samples/azure-cosmos-db-python-getting-started.git`
