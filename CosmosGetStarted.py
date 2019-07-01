@@ -33,7 +33,7 @@ item1 = client.CreateItem(container['_self'], {
     'Cloud Service': 0,
     'Virtual Machine': 0,
     'message': 'Hello World from Server 1!'
-    }
+}
 )
 
 item2 = client.CreateItem(container['_self'], {
@@ -42,7 +42,7 @@ item2 = client.CreateItem(container['_self'], {
     'Cloud Service': 0,
     'Virtual Machine': 0,
     'message': 'Hello World from Server 2!'
-    }
+}
 )
 
 # Query these items in SQL
