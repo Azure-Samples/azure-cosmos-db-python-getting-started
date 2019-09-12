@@ -1,7 +1,11 @@
 ---
-services: cosmos-db
-platforms: python
-author: arramac
+page_type: sample
+languages:
+- python
+products:
+- azure
+description: "Azure Cosmos DB is Microsoft’s globally distributed multi-model database service."
+urlFragment: azure-cosmos-db-python-getting-started
 ---
 
 # Developing a Python app using Azure Cosmos DB
