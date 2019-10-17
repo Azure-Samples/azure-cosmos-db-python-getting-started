@@ -4,7 +4,8 @@ languages:
 - python
 products:
 - azure
-description: "Azure Cosmos DB is Microsoft’s globally distributed multi-model database service."
+- azure-cosmos-db
+description: "How to use the Azure Cosmos DB with the SQL API to store and access data from a Python application."
 urlFragment: azure-cosmos-db-python-getting-started
 ---
 
