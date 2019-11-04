@@ -22,11 +22,11 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
 * Then, clone this repository using: 
      `git clone https://github.com/Azure-Samples/azure-cosmos-db-python-getting-started.git`
 
-* Next, substitute the endpoint and primary key in `CosmosGetStarted.py` with your Cosmos DB account's values. 
+* Next, substitute the endpoint and primary key in `cosmos_get_started.py` with your Cosmos DB account's values. 
 
 * In Visual Studio Code, select **View** > **Integrated terminal** to open the visual Studio Code integrated terminal.
 
-* In the terminal, run ```python CosmosGetStarted.py.```
+* In the terminal, run ```python cosmos_get_started.py.```
 
 ## About the code
 The code included in this sample is intended to get you quickly started with a Python application that connects to Azure Cosmos DB with the SQL API.
