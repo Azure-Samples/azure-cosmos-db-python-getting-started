@@ -42,7 +42,7 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
     Query returned 2 items. Operation consumed 3.09 request units
     ```
 
-* If you see the following error, then ensure you have installed the Azure Cosmos SDK properly with the `--pre` flag.  See prerequisites section above for details.
+* If you see the following error, then ensure you have installed the Azure Cosmos DB SDK properly with the `--pre` flag.  See prerequisites section above for details.
 
     ```
     Traceback (most recent call last):
