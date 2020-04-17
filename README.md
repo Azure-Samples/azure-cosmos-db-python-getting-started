@@ -25,6 +25,7 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
     * [Python extention for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
     * [Python 3.6+](https://www.python.org/downloads/) with \<install location\>\Python36 and \<install location>\Python36\Scripts added to your PATH. 
     * [Azure Cosmos DB Python SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos) - Install with this command: `pip install --pre azure-cosmos`
+        * Make sure to include `--pre` in the above command. Otherwise, it would not work as this instruction assumes v4 of the SDK
 
 * Clone this repository using: 
      `git clone https://github.com/Azure-Samples/azure-cosmos-db-python-getting-started.git`
