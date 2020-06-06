@@ -44,15 +44,6 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
     Query returned 2 items. Operation consumed 3.09 request units
     ```
 
-* If you see the following error, then ensure you have installed the Azure Cosmos DB SDK properly with the `--pre` flag.  See prerequisites section above for details.
-
-    ```
-    Traceback (most recent call last):
-    File "cosmos_get_started.py", line 1, in <module>
-        from azure.cosmos import exceptions, CosmosClient, PartitionKey
-    ImportError: cannot import name 'exceptions' from 'azure.cosmos' (...\lib\site-packages\azure\cosmos\__init__.py)
-    ```
-
 * You can view the items that this sample created by navigating to the [Azure Cosmos DB Data Explorer](https://cosmos.azure.com/) and selecting the AzureSampleFamilyDatabase:
 
     !['Azure Cosmos DB Data Explorer](assets/dataexplorer.png)
