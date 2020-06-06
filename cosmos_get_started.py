@@ -96,8 +96,10 @@ print('Query returned {0} items. Operation consumed {1} request units'.format(le
 # Update family returned from last query
 #region Update record
 item = items[0] #query items come back as list of dictionary so putting into seperate dictionary for ease
-item['children'] = [{'firstname': 'Liam', 'grade': 1}, {'firstname':'Emma','grade': 5, 'biketoschool': True}]
-result = container.upsert_item(item) #Cosmos will return updated item
+item['children'] = [{'firstname': 'Liam', 'grade': 1}, 
+    {'firstname':'Emma','grade': 5, 'biketoschool': True}]
+
+result = container.upsert_item(body=item) #Cosmos will return updated item
 
 request_charge = container.client_connection.last_response_headers['x-ms-request-charge']
 
@@ -116,8 +118,8 @@ items = list(container.query_items(
 ))
 
 container.delete_item(
-    item = items[0] #First item in list
-    partition_key = items[0]['lastname']
+    item = items[0], #First item in list
+    partition_key = items[0]['lastname'] #Partition key
 )
 
 request_charge = container.client_connection.last_response_headers['x-ms-request-charge']
