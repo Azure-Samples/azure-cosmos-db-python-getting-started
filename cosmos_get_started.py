@@ -101,7 +101,7 @@ result = container.upsert_item(item) #Cosmos will return updated item
 
 request_charge = container.client_connection.last_response_headers['x-ms-request-charge']
 
-print(f'Update completed and consumed {request_charge} requests units')
+print(f'Update completed and consumed {request_charge} request units')
 #endregion
 
 # Delete Item
@@ -122,7 +122,7 @@ container.delete_item(
 
 request_charge = container.client_connection.last_response_headers['x-ms-request-charge']
 
-print(f'Delete completed and consumed {request_charge} requests units')
+print(f'Delete completed and consumed {request_charge} request units')
 
 # Prove that delete was completed
 query = "SELECT * FROM f WHERE f.lastname = 'Johnson' AND f.registered = false"
