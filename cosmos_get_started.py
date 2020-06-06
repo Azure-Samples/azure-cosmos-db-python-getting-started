@@ -119,7 +119,7 @@ items = list(container.query_items(
 
 container.delete_item(
     item = items[0], #First item in list
-    partition_key = items[0]['lastname'] #Partition key
+    partition_key = items[0]['lastName'] #Partition key
 )
 
 request_charge = container.client_connection.last_response_headers['x-ms-request-charge']
