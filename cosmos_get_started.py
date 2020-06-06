@@ -116,6 +116,9 @@ items = list(container.query_items(
     query = query,
     enable_cross_partition_query = True
 ))
+request_charge = container.client_connection.last_response_headers['x-ms-request-charge']
+
+print('Query returned {0} items. Operation consumed {1} request units'.format(len(items), request_charge))
 
 container.delete_item(
     item = items[0], #First item in list
@@ -127,7 +130,7 @@ request_charge = container.client_connection.last_response_headers['x-ms-request
 print(f'Delete completed and consumed {request_charge} request units')
 
 # Prove that delete was completed
-query = "SELECT * FROM f WHERE f.lastname = 'Johnson' AND f.registered = false"
+query = "SELECT * FROM f WHERE f.lastName = 'Johnson' AND f.registered = false"
 
 items = list(container.query_items(
     query = query,
@@ -137,6 +140,6 @@ items = list(container.query_items(
 request_charge = container.client_connection.last_response_headers['x-ms-request-charge']
 
 if not items: #Empty list
-    print(f'Confirmed Item deleted and query consumed {request_charge} request units')
+    print(f'Confirmed item was deleted and query consumed {request_charge} request units')
 
 #endregion
