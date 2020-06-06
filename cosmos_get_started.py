@@ -30,7 +30,7 @@ container = database.create_container_if_not_exists(
 #endregion
 
 # Reconnecting to Azure Cosmos DB after creating database and container
-# This isn't normal but included to give example of how to connect to existing database and container
+# example of how to connect to existing database and container
 # without creating a new database and container
 #region Reconnection
 client = CosmosClient(endpoint, key)
@@ -60,15 +60,81 @@ for family in family_items_to_create:
 # Query these items using the SQL query syntax. 
 # Specifying the partition key value in the query allows Cosmos DB 
 # to retrieve data only from the relevant partitions, which improves performance
+# Detailed Documentation here: https://docs.microsoft.com/en-us/azure/cosmos-db/sql-query-getting-started
 #region Query items by Partition key
-query = "SELECT * FROM c WHERE c.lastName IN ('Wakefield', 'Andersen')"
+query = "SELECT * FROM f WHERE f.lastName IN ('Wakefield', 'Andersen')"
 
 items = list(container.query_items(
-    query=query,
-    enable_cross_partition_query=True
+    query = query,
+    enable_cross_partition_query = True
 ))
 
 request_charge = container.client_connection.last_response_headers['x-ms-request-charge']
 
 print('Query returned {0} items. Operation consumed {1} request units'.format(len(items), request_charge))
+#endregion
+
+# Query these items using non partition key
+# While performance is improved by using Partition key
+# Cosmos DB doesn't require this and considered a feature of the product
+#region Query items by non partition key
+query = "SELECT * FROM f WHERE f.district = 'WA5' AND f.address.state = 'WA'"
+
+items = list(container.query_items(
+    query = query,
+    enable_cross_partition_query = True
+))
+
+request_charge = container.client_connection.last_response_headers['x-ms-request-charge']
+
+print('Query returned {0} items. Operation consumed {1} request units'.format(len(items), request_charge))
+#endregion
+
+# Update Item
+# Updating item is simple as modifying resulting dict() and passing it back
+# Please note Cosmos does not support partial updates so make sure variable contains full item before updating
+# Update family returned from last query
+#region Update record
+item = items[0] #query items come back as list of dictionary so putting into seperate dictionary for ease
+item['children'] = [{'firstname': 'Liam', 'grade': 1}, {'firstname':'Emma','grade': 5, 'biketoschool': True}]
+result = container.upsert_item(item) #Cosmos will return updated item
+
+request_charge = container.client_connection.last_response_headers['x-ms-request-charge']
+
+print(f'Update completed and consumed {request_charge} requests units')
+#endregion
+
+# Delete Item
+# Deleting item requires passing in full item and partition key which in this example
+# is lastname (see line 27)
+#region Delete Item and confirm
+query = "SELECT * FROM f WHERE f.lastname = 'Johnson' AND f.registered = false"
+
+items = list(container.query_items(
+    query = query,
+    enable_cross_partition_query = True
+))
+
+container.delete_item(
+    item = items[0] #First item in list
+    partition_key = items[0]['lastname']
+)
+
+request_charge = container.client_connection.last_response_headers['x-ms-request-charge']
+
+print(f'Delete completed and consumed {request_charge} requests units')
+
+# Prove that delete was completed
+query = "SELECT * FROM f WHERE f.lastname = 'Johnson' AND f.registered = false"
+
+items = list(container.query_items(
+    query = query,
+    enable_cross_partition_query = True
+))
+
+request_charge = container.client_connection.last_response_headers['x-ms-request-charge']
+
+if not items: #Empty list
+    print(f'Confirmed Item deleted and query consumed {request_charge} request units')
+
 #endregion
