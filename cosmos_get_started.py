@@ -110,7 +110,7 @@ print(f'Update completed and consumed {request_charge} request units')
 # Deleting item requires passing in full item and partition key which in this example
 # is lastname (see line 27)
 #region Delete Item and confirm
-query = "SELECT * FROM f WHERE f.lastname = 'Johnson' AND f.registered = false"
+query = "SELECT * FROM f WHERE f.lastName = 'Johnson' AND f.registered = false"
 
 items = list(container.query_items(
     query = query,
