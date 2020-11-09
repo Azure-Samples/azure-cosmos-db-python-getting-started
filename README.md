@@ -24,7 +24,7 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
     * [Visual Studio Code](https://code.visualstudio.com/)
     * [Python extention for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
     * [Python 3.6+](https://www.python.org/downloads/) with \<install location\>\Python36 and \<install location>\Python36\Scripts added to your PATH. 
-    * [Azure Cosmos DB Python SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos) - Install with this command: `pip install --pre azure-cosmos`
+    * [Azure Cosmos DB Python SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos) - Install with this command: `pip install azure-cosmos`
 
 * Clone this repository using: 
      `git clone https://github.com/Azure-Samples/azure-cosmos-db-python-getting-started.git`
@@ -42,15 +42,6 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
     Read item with id Johnson_3bd2aa16-742f-4aed-9a95-3adc548a94e3. Operation consumed 1 request units
     Read item with id Wakefield_c73aa98d-7104-4b01-a3da-4946081575ff. Operation consumed 1 request units
     Query returned 2 items. Operation consumed 3.09 request units
-    ```
-
-* If you see the following error, then ensure you have installed the Azure Cosmos DB SDK properly with the `--pre` flag.  See prerequisites section above for details.
-
-    ```
-    Traceback (most recent call last):
-    File "cosmos_get_started.py", line 1, in <module>
-        from azure.cosmos import exceptions, CosmosClient, PartitionKey
-    ImportError: cannot import name 'exceptions' from 'azure.cosmos' (...\lib\site-packages\azure\cosmos\__init__.py)
     ```
 
 * You can view the items that this sample created by navigating to the [Azure Cosmos DB Data Explorer](https://cosmos.azure.com/) and selecting the AzureSampleFamilyDatabase:
