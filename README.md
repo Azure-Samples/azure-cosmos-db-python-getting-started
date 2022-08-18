@@ -23,7 +23,7 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
         * Create with [Azure portal](https://portal.azure.com) and select 'Core (SQL) API'.
         * Create with [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) with this command: `az cosmosdb create --name <account-name> --resource-group <resource-group-name>`. Note that the default API is Core (SQL) when creating a Cosmos DB account with the CLI.
     * [Visual Studio Code](https://code.visualstudio.com/)
-    * [Python extention for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
+    * [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
     * [Python 3.6+](https://www.python.org/downloads/) with \<install location\>\Python36 and \<install location>\Python36\Scripts added to your PATH. 
     * [Azure Cosmos DB Python SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos) - Install with this command: `pip install azure-cosmos`
 
