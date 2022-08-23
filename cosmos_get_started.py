@@ -3,19 +3,18 @@ from azure.cosmos import PartitionKey, exceptions
 import asyncio
 import family
 
-# Initialize the Cosmos client
+# <add_uri_and_key>
 endpoint = "<Your Cosmos DB Resource URI>"
 key = "<Your Cosmos DB Resource PRIMARY KEY>"
+# </add_uri_and_key>
 
 
-
-# Create a database
-# <create_database_if_not_exists>
+# <define_database_and_container_name>
 database_name = 'AzureSampleFamilyDatabase'
-# </create_database_if_not_exists>
 container_name = 'FamilyContainer'
+# </define_database_and_container_name>
 
-
+# <method_get_or_create_db>
 async def get_or_create_db(client, database_name):
     try:
         database_obj  = client.get_database_client(database_name)
@@ -24,10 +23,11 @@ async def get_or_create_db(client, database_name):
     except exceptions.CosmosResourceNotFoundError:
         print("Creating database")
         return await client.create_database(database_name)
+# </method_get_or_create_db>
     
 # Create a container
 # Using a good partition key improves the performance of database operations.
-# <create_container_if_not_exists>
+# <method_get_or_create_container>
 async def get_or_create_container(database_obj, container_name):
     try:        
         todo_items_container = database_obj.get_container_client(container_name)
@@ -41,7 +41,9 @@ async def get_or_create_container(database_obj, container_name):
             offer_throughput=400)
     except exceptions.CosmosHttpResponseError:
         raise
+# </method_get_or_create_container>
     
+# <method_populate_container_items>
 async def populate_container_items(container_obj, items_to_create):
     # Add items to the container
     family_items_to_create = items_to_create
@@ -50,7 +52,10 @@ async def populate_container_items(container_obj, items_to_create):
         inserted_item = await container_obj.create_item(body=family_item)
         print("Inserted item for %s family. Item Id: %s" %(inserted_item['lastName'], inserted_item['id']))
     # </create_item>
+# </method_populate_container_items>
 
+
+# <method_read_items>
 async def read_items(container_obj, items_to_read):
     # Read items (key value lookups by partition key and id, aka point reads)
     # <read_item>
@@ -59,7 +64,9 @@ async def read_items(container_obj, items_to_read):
         request_charge = container_obj.client_connection.last_response_headers['x-ms-request-charge']
         print('Read item with id {0}. Operation consumed {1} request units'.format(item_response['id'], (request_charge)))
     # </read_item>
+# </method_read_items>
 
+# <method_query_items>
 async def query_items(container_obj, query_text):
     # enable_cross_partition_query should be set to True as the container is partitioned
     # In this case, we do have to await the asynchronous iterator object since logic
@@ -73,8 +80,11 @@ async def query_items(container_obj, query_text):
     items = [item async for item in query_items_response]
     print('Query returned {0} items. Operation consumed {1} request units'.format(len(items), request_charge))
     # </query_items>
-    
+# </method_query_items>
+
+# <run_sample>
 async def run_sample():
+    # <create_cosmos_client>
     async with cosmos_client(endpoint, credential = key) as client:
         try:
             # create a database
@@ -95,10 +105,13 @@ async def run_sample():
             print('\nrun_sample has caught an error. {0}'.format(e.message))
         finally:
             print("\nQuickstart complete")
+# </run_sample>
 
+# <python_main>
 if __name__=="__main__":
     loop = asyncio.get_event_loop()
     loop.run_until_complete(run_sample())
+# <python_main>
 
     
 
