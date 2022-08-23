@@ -14,7 +14,7 @@ database_name = 'AzureSampleFamilyDatabase'
 container_name = 'FamilyContainer'
 # </define_database_and_container_name>
 
-# <method_get_or_create_db>
+# <create_database_if_not_exists>
 async def get_or_create_db(client, database_name):
     try:
         database_obj  = client.get_database_client(database_name)
@@ -23,11 +23,11 @@ async def get_or_create_db(client, database_name):
     except exceptions.CosmosResourceNotFoundError:
         print("Creating database")
         return await client.create_database(database_name)
-# </method_get_or_create_db>
+# </create_database_if_not_exists>
     
 # Create a container
 # Using a good partition key improves the performance of database operations.
-# <method_get_or_create_container>
+# <create_container_if_not_exists>
 async def get_or_create_container(database_obj, container_name):
     try:        
         todo_items_container = database_obj.get_container_client(container_name)
@@ -41,7 +41,7 @@ async def get_or_create_container(database_obj, container_name):
             offer_throughput=400)
     except exceptions.CosmosHttpResponseError:
         raise
-# </method_get_or_create_container>
+# </create_container_if_not_exists>
     
 # <method_populate_container_items>
 async def populate_container_items(container_obj, items_to_create):
@@ -72,6 +72,7 @@ async def query_items(container_obj, query_text):
     # In this case, we do have to await the asynchronous iterator object since logic
     # within the query_items() method makes network calls to verify the partition key
     # definition in the container
+    # <query_items>
     query_items_response = container_obj.query_items(
         query=query_text,
         enable_cross_partition_query=True
@@ -86,6 +87,7 @@ async def query_items(container_obj, query_text):
 async def run_sample():
     # <create_cosmos_client>
     async with cosmos_client(endpoint, credential = key) as client:
+    # </create_cosmos_client>
         try:
             # create a database
             database_obj = await get_or_create_db(client, database_name)
