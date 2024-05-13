@@ -20,7 +20,7 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
 * Before you can run this sample, you must have the following prerequisites:
     * [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) or [Azure Cloud Shell](https://shell.azure.com) - Install if you want to execute commands via the CLI instead of the Azure portal.
     * [Azure Cosmos DB Account](https://docs.microsoft.com/azure/cosmos-db/) using the Azure portal or the Azure CLI.
-        * Create with [Azure portal](https://portal.azure.com) and select 'Core (SQL) API'.
+        * Create with [Azure portal](https://portal.azure.com) and select 'NoSQL API'.
         * Create with [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) with this command: `az cosmosdb create --name <account-name> --resource-group <resource-group-name>`. Note that the default API is NoSQL when creating a Cosmos DB account with the CLI.
     * [Visual Studio Code](https://code.visualstudio.com/)
     * [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
